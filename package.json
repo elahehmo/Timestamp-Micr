@@ -1,0 +1,19 @@
+{
+  "name": "timestamp-microservice",
+  "version": "1.0.0",
+  "description": "show both unix and natural time",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elahehmo/Timestamp-Micr.git"
+  },
+  "author": "elaheh mola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elahehmo/Timestamp-Micr/issues"
+  },
+  "homepage": "https://github.com/elahehmo/Timestamp-Micr#readme"
+}
