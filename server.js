@@ -27,10 +27,40 @@ app.route('/_api/package.json')
     });
   });
   
+  //app.rout(`/${/d/}`).get(function(req, res) {
+		//  res.sendFile(process.cwd() + '/views/index.html');
+  //  })
+  
+  
 app.route('/')
     .get(function(req, res) {
 		  res.sendFile(process.cwd() + '/views/index.html');
-    })
+   })
+   app.get('/:dateVal',function(req,res,next){
+     var dateVal=req.params.dateVal;
+     var dateformattingoptios={
+       year:'numeric',
+       month:'long',
+       day:'numeric'
+     };
+     if(isNaN(dateVal)){
+       var naturalDate=new Date(dateVal);
+       naturalDate=naturalDate.toLocaleDateString("en-us",dateformattingoptios);
+       var unixDate=new Date(dateVal).getTime()/1000;
+       
+     }
+     else{
+     var  unixDate=dateVal;
+       var naturalDate=new Date(dateVal* 1000);
+       naturalDate=naturalDate.toLocaleDateString("en-us",dateformattingoptios);
+       
+       
+     }
+     res.json({unix:unixDate, natural:naturalDate});
+     
+       
+     next();
+   });
 
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
